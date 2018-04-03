@@ -4,12 +4,15 @@
 # returns whether or not (e.g., a boolean) the length of one argument is greater
 # than or equal to twice the length of the other.
 # Hint: compare the length difference to the length of the smaller string
-
+is_twice_as_long <- function(x, y) {
+  diff <- nchar(x) - nchar(y)
+  abs(diff) >= min(nchar(x) - nchar(y))
+}
 
 # Call your `is_twice_as_long` function by passing it different length strings
 # to confirm that it works. Make sure to check when _either_ argument is twice
 # as long, as well as when neither are!
-
+is_twice_as_long("utt", "butt")
 
 
 # Define a function `describe_difference` that takes in two strings. The
@@ -17,8 +20,17 @@
 #   "Your first string is longer by N characters"
 #   "Your second string is longer by N characters"
 #   "Your strings are the same length!"
-
+describe_diffrence <- function(x, y) {
+  diff = nchar(x) - nchar(y)
+  if (diff > 0) {
+     print(paste("Your first string is longer by ", diff , "N characters"))
+  } else if (diff < 0) {
+    print(paste("Your second string is longer by ", abs(diff) , "N characters"))
+  } else {
+    print(paste("Your strings are the same length!"))
+  }
+}
 
 # Call your `describe_difference` function by passing it different length strings
 # to confirm that it works. Make sure to check all 3 conditions1
-
+describe_diffrence("butt", "butt")
